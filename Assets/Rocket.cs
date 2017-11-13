@@ -20,5 +20,11 @@ public class Rocket : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space)) {
             rigidBody.AddRelativeForce(Vector3.up);
         }
+
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            transform.Rotate(Vector3.forward);
+        } else if (Input.GetKey(KeyCode.RightArrow)) {
+            transform.Rotate(-Vector3.forward);
+        }
     }
 }

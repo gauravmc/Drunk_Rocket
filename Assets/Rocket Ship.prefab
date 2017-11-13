@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000376084469634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 2.93, z: 0}
+  m_LocalPosition: {x: 0, y: 2.916606, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4352379346986964}
@@ -487,13 +487,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000376084469634}
   serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
+  m_Mass: 1
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!65 &65006914292393514
 BoxCollider:
@@ -635,7 +635,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_ExtensionPropertyValues: []
 --- !u!114 &114757435477614548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -647,6 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c187902d7220499690ca90f65588e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationThrust: 250
+  mainThrust: 1500
 --- !u!136 &136967152017342054
 CapsuleCollider:
   m_ObjectHideFlags: 1

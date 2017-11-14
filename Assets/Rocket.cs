@@ -2,9 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour {
-    Rigidbody rigidBody;
+	enum State { Alive, Dead, Transcending }
+	State state;
+
+	Rigidbody rigidBody;
     AudioSource audioSource;
 
 	[SerializeField] float rotationThrust = 250f;
@@ -12,32 +16,47 @@ public class Rocket : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        rigidBody = GetComponent<Rigidbody>();
+		state = State.Alive;
+		rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
 	}
 
 	void OnCollisionEnter(Collision collision) {
+		if (state != State.Alive) { return; }
+
 		switch (collision.gameObject.tag)
 		{
 		case "Friendly":
 			print ("Okay");
 			break;
-		case "Fuel":
-			print ("Picked up fuel");
+		case "Finish":
+			state = State.Transcending;
+			Invoke("startNextScene", 1);
 			break;
 		default:
-			print ("Dead");
+			state = State.Dead;
+			Invoke("restartGame", 1);
 			break;
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {
-		Thrust();
-		Rotate();
+	private void startNextScene() {
+		SceneManager.LoadScene(1);
 	}
 
-    private void Rotate() {
+	private void restartGame() {
+		SceneManager.LoadScene(0);
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (state == State.Alive) {
+			HandleThrust();
+			HandleRotate();
+		}
+	}
+
+	private void HandleRotate() {
 		rigidBody.freezeRotation = true; // take manual control of rotation
 
 		float rotationForFrame = rotationThrust * Time.deltaTime;
@@ -51,7 +70,7 @@ public class Rocket : MonoBehaviour {
 		rigidBody.freezeRotation = false; // give automatic physics rotate control
 	}
 
-	private void Thrust() {
+	private void HandleThrust() {
 		if (Input.GetKey(KeyCode.Space)) {
 			float thrustForFrame = mainThrust * Time.deltaTime;
 

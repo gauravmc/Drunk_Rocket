@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4765676351372974}
   - component: {fileID: 54717825590223272}
-  - component: {fileID: 114757435477614548}
   - component: {fileID: 82989274726647026}
+  - component: {fileID: 114757435477614548}
   m_Layer: 0
   m_Name: Rocket Ship
   m_TagString: Untagged
@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000376084469634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.766164, z: 0}
+  m_LocalPosition: {x: -28.5, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4352379346986964}
@@ -648,6 +648,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationThrust: 250
   mainThrust: 1500
+  mainEngineClip: {fileID: 8300000, guid: fecfac39cd3204fd39371221324ac866, type: 3}
+  levelFinishClip: {fileID: 8300000, guid: 9967daf4522084108bed46f621e31d28, type: 3}
+  rocketDeadClip: {fileID: 8300000, guid: ef913b5d34df146ba97cb25445784cba, type: 3}
 --- !u!136 &136967152017342054
 CapsuleCollider:
   m_ObjectHideFlags: 1

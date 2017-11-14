@@ -16,6 +16,21 @@ public class Rocket : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
 	}
 
+	void OnCollisionEnter(Collision collision) {
+		switch (collision.gameObject.tag)
+		{
+		case "Friendly":
+			print ("Okay");
+			break;
+		case "Fuel":
+			print ("Picked up fuel");
+			break;
+		default:
+			print ("Dead");
+			break;
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		Thrust();

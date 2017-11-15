@@ -13,9 +13,15 @@ public class Rocket : MonoBehaviour {
 
 	[SerializeField] float rotationThrust = 250f;
 	[SerializeField] float mainThrust = 1000f;
+
 	[SerializeField] AudioClip mainEngineClip;
 	[SerializeField] AudioClip levelFinishClip;
 	[SerializeField] AudioClip rocketDeadClip;
+
+	[SerializeField] ParticleSystem leftBoosterThrust;
+	[SerializeField] ParticleSystem rightBoosterThrust;
+	[SerializeField] ParticleSystem successParticles;
+	[SerializeField] ParticleSystem explosionParticles;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +48,7 @@ public class Rocket : MonoBehaviour {
 	}
 
 	private void startSuccessSequence() {
+		successParticles.Play();
 		audioSource.Stop();
 		audioSource.PlayOneShot(levelFinishClip);
 		state = State.Transcending;
@@ -50,6 +57,8 @@ public class Rocket : MonoBehaviour {
 
 	private void startDeathSequence() {
 		state = State.Dead;
+		thrustParticlesStop();
+		explosionParticles.Play();
 		audioSource.Stop();
 		audioSource.PlayOneShot(rocketDeadClip);
 		Invoke("restartGame", 1);
@@ -93,6 +102,7 @@ public class Rocket : MonoBehaviour {
 			startThrustSound();
 		} else {
 			audioSource.Stop();
+			thrustParticlesStop();
 		}
 	}
 
@@ -100,5 +110,17 @@ public class Rocket : MonoBehaviour {
         if (!audioSource.isPlaying) {
 			audioSource.PlayOneShot(mainEngineClip);
         }
+
+		thrustParticlesStart();
     }
+
+	private void thrustParticlesStart() {
+		leftBoosterThrust.Play();
+		rightBoosterThrust.Play();		
+	}
+
+	private void thrustParticlesStop() {
+		leftBoosterThrust.Stop();
+		rightBoosterThrust.Stop();
+	}
 }

@@ -838,9 +838,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationThrust: 300
   mainThrust: 2000
-  mainEngineClip: {fileID: 8300000, guid: 3d7f891eb623045cc898b83cff6cb514, type: 3}
+  mainEngineClip: {fileID: 8300000, guid: bb585776aa05f4c3c93a9aa7b7f0cc8a, type: 3}
   levelFinishClip: {fileID: 8300000, guid: 9967daf4522084108bed46f621e31d28, type: 3}
-  rocketDeadClip: {fileID: 8300000, guid: da6ead7c2e79845b5828db0896d8518b, type: 3}
+  rocketDeadClip: {fileID: 8300000, guid: ba4f09bb5f485462bbabdf69772f58f8, type: 3}
   leftBoosterThrust: {fileID: 198067257450516208}
   rightBoosterThrust: {fileID: 198305203355289182}
   successParticles: {fileID: 198696359697282248}

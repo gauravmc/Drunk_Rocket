@@ -103,7 +103,7 @@ public class Rocket : MonoBehaviour {
     }
 
     private void HandleRotate() {
-		rigidBody.freezeRotation = true; // take manual control of rotation
+        rigidBody.angularVelocity = Vector3.zero;
 
 		float rotationForFrame = rotationThrust * Time.deltaTime;
 
@@ -112,21 +112,28 @@ public class Rocket : MonoBehaviour {
         } else if (Input.GetKey(KeyCode.RightArrow)) {
 			transform.Rotate(-Vector3.forward * rotationForFrame);
         }
-
-		rigidBody.freezeRotation = false; // give automatic physics rotate control
 	}
 
 	private void HandleThrust() {
 		if (Input.GetKey(KeyCode.Space)) {
-			float thrustForFrame = mainThrust * Time.deltaTime;
+            ApplyThrust();
+        }
+        else {
+            StopApplyingThrust();
+        }
+    }
 
-			rigidBody.AddRelativeForce(Vector3.up * thrustForFrame);
-			startThrustSound();
-		} else {
-			audioSource.Stop();
-			thrustParticlesStop();
-		}
-	}
+    private void ApplyThrust() {
+        float thrustForFrame = mainThrust * Time.deltaTime;
+
+        rigidBody.AddRelativeForce(Vector3.up * thrustForFrame);
+        startThrustSound();
+    }
+
+    private void StopApplyingThrust() {
+        audioSource.Stop();
+        thrustParticlesStop();
+    }
 
     private void startThrustSound() {
         if (!audioSource.isPlaying) {

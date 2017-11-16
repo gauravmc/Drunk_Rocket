@@ -334,6 +334,11 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 82441604949293572, guid: a45b795ed38cd4c97b2ee41091119494,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a45b795ed38cd4c97b2ee41091119494, type: 2}
   m_IsPrefabParent: 0
@@ -603,6 +608,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c145e72ba091347a9801c9df7a001dfd, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1824256589
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.249419
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 20.851593
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -30.954597
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749715158838654, guid: 505261d0549e64e268b4287741cec784, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 505261d0549e64e268b4287741cec784, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1994629441
 Prefab:

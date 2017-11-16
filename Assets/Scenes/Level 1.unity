@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.2
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_Sun: {fileID: 1394466201}
+  m_IndirectSpecularColor: {r: 0.20150828, g: 0.2269935, b: 0.26708972, a: 0.2}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -210,15 +210,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4672061638060702, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 90.4
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4672061638060702, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 26.1
+      value: 16.73
       objectReference: {fileID: 0}
     - target: {fileID: 4672061638060702, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 16.2
+      value: -36.42
       objectReference: {fileID: 0}
     - target: {fileID: 4672061638060702, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -239,6 +239,16 @@ Prefab:
     - target: {fileID: 4672061638060702, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108088579544251506, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108088579544251506, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f, type: 2}
@@ -500,6 +510,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bce6f9d341b241b3ae0ac849bb38bb5, type: 2}
   m_IsPrefabParent: 0
+--- !u!108 &1394466201 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108088579544251506, guid: 72b1caf364cad4aa3b2c5d6a66fd8e0f,
+    type: 2}
+  m_PrefabInternal: {fileID: 223832796}
 --- !u!1 &1479938646 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1080445833419932, guid: 8bce6f9d341b241b3ae0ac849bb38bb5,

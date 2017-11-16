@@ -23,6 +23,8 @@ public class Rocket : MonoBehaviour {
 	[SerializeField] ParticleSystem successParticles;
 	[SerializeField] ParticleSystem explosionParticles;
 
+    bool immortalMode = false;
+
 	// Use this for initialization
 	void Start () {
 		state = State.Alive;
@@ -36,7 +38,6 @@ public class Rocket : MonoBehaviour {
 		switch (collision.gameObject.tag)
 		{
 		case "Friendly":
-			print ("Okay");
 			break;
 		case "Finish":
 			startSuccessSequence();
@@ -56,6 +57,7 @@ public class Rocket : MonoBehaviour {
 	}
 
 	private void startDeathSequence() {
+        if (immortalMode) { return; }
 		state = State.Dead;
 		thrustParticlesStop();
 		explosionParticles.Play();
@@ -65,22 +67,42 @@ public class Rocket : MonoBehaviour {
 	}
 
 	private void startNextScene() {
-		SceneManager.LoadScene(1);
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) {
+            nextSceneIndex = 0;
+        }
+
+        SceneManager.LoadScene(nextSceneIndex);
 	}
 
 	private void restartGame() {
-		SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (state == State.Alive) {
+        if (state == State.Alive) {
 			HandleThrust();
 			HandleRotate();
 		}
-	}
 
-	private void HandleRotate() {
+        if (Debug.isDebugBuild) {
+            RespondToDebugKeys();
+        }
+    }
+
+    private void RespondToDebugKeys() {
+        if (Input.GetKeyDown(KeyCode.L)) {
+            startNextScene();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            immortalMode = !immortalMode;
+        }
+    }
+
+    private void HandleRotate() {
 		rigidBody.freezeRotation = true; // take manual control of rotation
 
 		float rotationForFrame = rotationThrust * Time.deltaTime;
